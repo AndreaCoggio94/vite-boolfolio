@@ -1,13 +1,27 @@
 <script>
 import ProjectCard from "./ProjectCard.vue";
+import axios from "axios";
+
+import { store } from "../../data/store";
+
 export default {
   data() {
-    return {};
+    return {
+      projects: [],
+    };
   },
-  props: {
-    projects: Array,
-  },
+  props: {},
   components: { ProjectCard },
+  methods: {
+    fetchProjects(uri = store.api.baseUrl + "projects") {
+      axios.get(uri).then((response) => {
+        this.projects = response.data.data;
+      });
+    },
+  },
+  created() {
+    this.fetchProjects();
+  },
 };
 </script>
 
