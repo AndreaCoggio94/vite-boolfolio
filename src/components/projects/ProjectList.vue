@@ -8,6 +8,9 @@ export default {
   data() {
     return {
       projects: [],
+      pagination: {
+        links: null,
+      },
     };
   },
   props: {},
@@ -16,6 +19,7 @@ export default {
     fetchProjects(uri = store.api.baseUrl + "projects") {
       axios.get(uri).then((response) => {
         this.projects = response.data.data;
+        this.pagination.links = response.data.links;
       });
     },
   },
@@ -30,6 +34,17 @@ export default {
     <h2>Project list</h2>
     <div class="row row-cols-3 g-3">
       <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li
+            v-for="link in pagination.links"
+            @click="fetchPost(link.url)"
+            class="page-item"
+          >
+            <a href="#" class="page-link" v-html="link.label"></a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </template>
