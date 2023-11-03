@@ -15,9 +15,7 @@ export default {
   <div class="container">
     <h2>Project list</h2>
     <div class="row row-cols-3 g-3">
-      <div class="col" v-for="project in projects">
-        <ProjectCard :project="project"></ProjectCard>
-      </div>
+      <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
     </div>
   </div>
 </template>

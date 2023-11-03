@@ -10,9 +10,11 @@ export default {
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-body">
-      <h4>{{ project.name }}</h4>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h4>{{ project.name }}</h4>
+      </div>
     </div>
   </div>
 </template>
