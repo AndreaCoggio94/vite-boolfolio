@@ -28,7 +28,7 @@ export default {
 
 <template>
   <h1>Hello There!</h1>
-  <ProjectList></ProjectList>
+  <ProjectList :projects="projects"></ProjectList>
 </template>
 
 <style lang="scss"></style>
