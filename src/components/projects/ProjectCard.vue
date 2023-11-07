@@ -35,7 +35,11 @@ export default {
         <h4>{{ project.name }}</h4>
       </div>
       <div class="card-footer">
-        <a href="#" class="btn btn-primary">More</a>
+        <router-link
+          :to="{ name: 'project', params: { slug: project.slug } }"
+          class="btn btn-primary"
+          >More</router-link
+        >
       </div>
     </div>
   </div>
