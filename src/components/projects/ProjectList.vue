@@ -38,10 +38,10 @@ export default {
         <ul class="pagination">
           <li
             v-for="link in pagination.links"
-            @click="fetchPost(link.url)"
+            @click="fetchProject(link.url)"
             class="page-item"
           >
-            <a href="#" class="page-link" v-html="link.label"></a>
+            <a href="" class="page-link" v-html="link.label"></a>
           </li>
         </ul>
       </nav>
