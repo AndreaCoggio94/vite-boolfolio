@@ -39,7 +39,7 @@ export default {
             <router-link
               class="nav-link"
               aria-current="page"
-              :to="{ name: 'projects' }"
+              :to="{ name: 'portfolio' }"
               >Projects</router-link
             >
           </li>
