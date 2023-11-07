@@ -6,7 +6,7 @@ import { store } from "../data/store";
 export default {
   data() {
     return {
-      project: {},
+      project: null,
     };
   },
 
@@ -23,8 +23,14 @@ export default {
 </script>
 
 <template>
-  Hello single project
-  <ProjectCard :project="project"></ProjectCard>
+  <div class="container">
+    <h1>Project Details</h1>
+    <ProjectCard
+      :project="project"
+      :isDetail="true"
+      v-if="project"
+    ></ProjectCard>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

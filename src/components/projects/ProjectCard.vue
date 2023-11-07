@@ -5,6 +5,7 @@ export default {
   },
   props: {
     project: Object,
+    isDetail: Boolean,
   },
 };
 </script>
@@ -34,7 +35,7 @@ export default {
       <div class="card-body">
         <h4>{{ project.name }}</h4>
       </div>
-      <div class="card-footer">
+      <div class="card-footer" v-if="!isDetail">
         <router-link
           :to="{ name: 'project', params: { slug: project.slug } }"
           class="btn btn-primary"

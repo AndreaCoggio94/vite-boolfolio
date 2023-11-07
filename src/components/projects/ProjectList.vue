@@ -33,7 +33,11 @@ export default {
   <div class="container">
     <h2>Project list</h2>
     <div class="row row-cols-3 g-3">
-      <ProjectCard v-for="project in projects" :project="project"></ProjectCard>
+      <ProjectCard
+        v-for="project in projects"
+        :project="project"
+        :isDetail="false"
+      ></ProjectCard>
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li
