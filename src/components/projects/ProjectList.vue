@@ -17,6 +17,7 @@ export default {
   components: { ProjectCard },
   methods: {
     fetchProjects(uri = store.api.baseUrl + "projects") {
+      console.log(uri);
       axios.get(uri).then((response) => {
         this.projects = response.data.data;
         this.pagination.links = response.data.links;
@@ -42,10 +43,11 @@ export default {
         <ul class="pagination">
           <li
             v-for="link in pagination.links"
-            @click="fetchProject(link.url)"
+            @click="fetchProjects(link.url)"
             class="page-item"
+            :class="link.active ? 'active' : ''"
           >
-            <a href="" class="page-link" v-html="link.label"></a>
+            <a class="page-link" v-html="link.label"></a>
           </li>
         </ul>
       </nav>

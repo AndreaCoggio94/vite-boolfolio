@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="col">
-    <div class="card">
+    <div class="card h-100">
       <div
         class="card-header d-flex justify-content-between align-content-start"
       >
@@ -34,6 +34,7 @@ export default {
       </div>
       <div class="card-body">
         <h4>{{ project.name }}</h4>
+        <p>{{ project.description }}</p>
       </div>
       <div class="card-footer" v-if="!isDetail">
         <router-link
