@@ -16,11 +16,15 @@ export default {
       <div
         class="card-header d-flex justify-content-between align-content-start"
       >
-        <span
+        <router-link
           v-if="project.type"
+          :to="{
+            name: 'portfolio-by-type',
+            params: { type_id: project.type_id },
+          }"
           class="badge mx-1"
           :style="{ backgroundColor: project.type.colour }"
-          >{{ project.type.name }}</span
+          >{{ project.type.name }}</router-link
         >
 
         <div class="div">
