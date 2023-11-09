@@ -11,6 +11,7 @@ export default {
       pagination: {
         links: null,
       },
+      uri: store.api.baseUrl + "projects",
     };
   },
   props: {},

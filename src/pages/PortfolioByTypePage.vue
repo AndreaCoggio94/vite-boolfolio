@@ -1,25 +1,41 @@
 <script>
+// import ProjectList from "../components/projects/ProjectList.vue";
 import { store } from "../data/store";
 import axios from "axios";
 
 export default {
   data() {
     return {
-      project: null,
-
-      error: {
-        hasError: false,
-        message: "",
+      type: {
+        name: "",
+        id: "",
+        colour: "",
       },
     };
   },
 
   created() {
-    console.log(store.api.baseUrl + "projects/" + this.$route.params.type_id);
+    axios
+      .get(store.api.baseUrl + "types/" + this.$route.params.type_id)
+      .then((response) => {
+        this.type = response.data;
+      });
   },
+
+  // components: { ProjectList },
 };
 </script>
 
-<template>Hello Type</template>
+<template>
+  <div class="container">
+    <h1 class="my-5">
+      Portfolio by type
+      <span class="badge mx-1" :style="{ backgroundColor: type.colour }">
+        {{ type.name }}
+      </span>
+    </h1>
+  </div>
+  <!-- <ProjectList></ProjectList> -->
+</template>
 
 <style lang="scss" scoped></style>
