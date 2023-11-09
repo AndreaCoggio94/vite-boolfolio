@@ -1,16 +1,12 @@
 <script>
-// import ProjectList from "../components/projects/ProjectList.vue";
+import ProjectList from "../components/projects/ProjectList.vue";
 import { store } from "../data/store";
 import axios from "axios";
 
 export default {
   data() {
     return {
-      type: {
-        name: "",
-        id: "",
-        colour: "",
-      },
+      type: null,
     };
   },
 
@@ -20,9 +16,12 @@ export default {
       .then((response) => {
         this.type = response.data;
       });
+    // .catch((error) => {
+    //   this.$router.push({ name: "not-found" });
+    // });
   },
 
-  // components: { ProjectList },
+  components: { ProjectList },
 };
 </script>
 
@@ -35,7 +34,7 @@ export default {
       </span>
     </h1>
   </div>
-  <!-- <ProjectList></ProjectList> -->
+  <ProjectList :type_id="type.id" v-if="type"></ProjectList>
 </template>
 
 <style lang="scss" scoped></style>
