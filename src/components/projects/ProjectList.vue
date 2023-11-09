@@ -39,8 +39,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <!-- <h2>Project list</h2> -->
+  <div class="container mt-2">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
         <li
@@ -53,25 +52,29 @@ export default {
         </li>
       </ul>
     </nav>
+  </div>
+  <div class="container my-3">
     <div class="row row-cols-3 g-3">
       <ProjectCard
         v-for="project in projects"
         :project="project"
         :isDetail="false"
       ></ProjectCard>
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li
-            v-for="link in pagination.links"
-            @click="fetchProjects(link.url)"
-            class="page-item"
-            :class="link.active ? 'active' : ''"
-          >
-            <a class="page-link" v-html="link.label"></a>
-          </li>
-        </ul>
-      </nav>
     </div>
+  </div>
+  <div class="container">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li
+          v-for="link in pagination.links"
+          @click="fetchProjects(link.url)"
+          class="page-item"
+          :class="link.active ? 'active' : ''"
+        >
+          <a class="page-link" v-html="link.label"></a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
